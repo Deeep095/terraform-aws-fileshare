@@ -3,3 +3,4 @@ variable "notify_email" {
   description = "Email address to receive upload notifications"
   default = "deepanshujain192837465@gmail.com"
 }
+
