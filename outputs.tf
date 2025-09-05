@@ -4,12 +4,12 @@
 
 output "bucket_name" {
   description = "Private S3 bucket used for file storage."
-  value       = aws_s3_bucket.this.id
+  value       = aws_s3_bucket.files.bucket
 }
 
 output "bucket_arn" {
   description = "ARN of the S3 bucket."
-  value       = aws_s3_bucket.this.arn
+  value       = aws_s3_bucket.files.arn
 }
 
 output "table_name" {
@@ -45,14 +45,15 @@ output "routes" {
 # CDN (optional)        #
 #########################
 
+# Use try() to avoid errors if the distribution is not created (count = 0)
 output "cdn_domain" {
   description = "CloudFront distribution domain name, if CDN is enabled."
-  value       = aws_cloudfront_distribution.this[0].domain_name
+  value       = try(aws_cloudfront_distribution.this[0].domain_name, null)
 }
 
 output "cdn_distribution_id" {
   description = "CloudFront distribution ID, if CDN is enabled."
-  value       = aws_cloudfront_distribution.this[0].id
+  value       = try(aws_cloudfront_distribution.this[0].id, null)
 }
 
 #########################
