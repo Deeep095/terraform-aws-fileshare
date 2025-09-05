@@ -1,3 +1,3 @@
-.terraform/
+# terraform-fileshare-aws
+file sharing using aws ,terraform
 
-.terraform.lock.hcl
