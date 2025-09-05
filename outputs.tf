@@ -48,12 +48,12 @@ output "routes" {
 # Use try() to avoid errors if the distribution is not created (count = 0)
 output "cdn_domain" {
   description = "CloudFront distribution domain name, if CDN is enabled."
-  value       = try(aws_cloudfront_distribution.this[0].domain_name, null)
+  value       = try(aws_cloudfront_distribution.cdn.domain_name, null)
 }
 
 output "cdn_distribution_id" {
   description = "CloudFront distribution ID, if CDN is enabled."
-  value       = try(aws_cloudfront_distribution.this[0].id, null)
+  value       = try(aws_cloudfront_distribution.cdn.id, null)
 }
 
 #########################
@@ -62,5 +62,5 @@ output "cdn_distribution_id" {
 
 output "sns_topic_arn" {
   description = "SNS topic ARN used for upload-complete notifications."
-  value       = aws_sns_topic.upload_complete.arn
+  value       = aws_sns_topic.upload_notifications.arn
 }

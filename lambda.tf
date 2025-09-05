@@ -11,8 +11,8 @@ resource "aws_lambda_function" "presign_lambda" {
   role             = aws_iam_role.presign_lambda_role.arn
   runtime          = "python3.10"
   handler          = "lambda_presign.lambda_handler"   # file name and handler function
-  filename         = "../lambda/lambda_presign.zip"           # path to packaged code
-  source_code_hash = filebase64sha256("../lambda/lambda_presign.zip")
+  filename         = "lambda/lambda_presign.zip"           # path to packaged code
+  source_code_hash = filebase64sha256("lambda/lambda_presign.zip")
   timeout          = 15
   environment {
     variables = {
@@ -28,8 +28,8 @@ resource "aws_lambda_function" "postupload_lambda" {
   role             = aws_iam_role.postupload_lambda_role.arn
   runtime          = "python3.10"
   handler          = "lambda_postupload.lambda_handler"
-  filename         = "../lambda/lambda_postupload.zip"
-  source_code_hash = filebase64sha256("../lambda/lambda_postupload.zip")
+  filename         = "lambda/lambda_postupload.zip"
+  source_code_hash = filebase64sha256("lambda/lambda_postupload.zip")
   timeout          = 15
   environment {
     variables = {
