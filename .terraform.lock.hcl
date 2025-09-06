@@ -2,8 +2,7 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.terraform.io/hashicorp/aws" {
-  version     = "6.12.0"
-  constraints = "~> 6.0"
+  version = "6.12.0"
   hashes = [
     "h1:296dSdl5w2NdTKNZeZHI4AH3jcbj+Hrh+DJKUeHfI4I=",
     "zh:054bcbf13c6ac9ddd2247876f82f9b56493e2f71d8c88baeec142386a395165d",

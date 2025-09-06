@@ -8,6 +8,10 @@ terraform{
 }
 
 provider "aws" {
-  region = "us-east-1"   # Change as needed
+  region = "us-east-1"
 }
 
+module "fileshare" {
+    source = "./modules"
+    notify_email = "deepanshujain1357@gmail.com"
+}
