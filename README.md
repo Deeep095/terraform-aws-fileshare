@@ -33,14 +33,22 @@ This layout follows official guidance for clear module structure and documentati
 - table_name – DynamoDB table.  
 - cdn_domain – CloudFront domain (if enabled).  
 
-## Usage (example)
+## Examples
 
-See the [examples/complete](./examples/complete) folder for a full working usage.
+The following examples are available in this repository:
+
+- [Complete Example](https://github.com/Deeep095/terraform-aws-fileshare/tree/main/Examples/complete)
+
+### Complete Example
 
 ```hcl
 module "fileshare" {
   source  = "Deeep095/fileshare/aws"
-  version = "1.1.5"
+  version = "1.1.6"
 
-  # insert required variables here
+  notify_email = "test@example.com"
+
+  # Optionally override defaults
+  # aws_region = "us-east-1"
 }
+
