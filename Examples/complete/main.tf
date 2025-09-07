@@ -1,6 +1,7 @@
 
 module "fileshare" {
-  source      = "./modules"
-  notify_email = "your-email-id"
-  aws_region   = "preferred-aws-region"
+  source = "Deeep095/fileshare/aws"
+  version = "~> 1.1"
+  notification_email = "your-email-id"
+  region = "preferred-aws-region"
 }
