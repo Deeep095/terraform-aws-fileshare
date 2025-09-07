@@ -12,6 +12,8 @@ provider "aws" {
 }
 
 module "fileshare" {
-    source = "./modules"
-    notify_email = "youremail@gmail.com"
+  source = "./modules"
+
+  notify_email = "your-email-id"
+  
 }
