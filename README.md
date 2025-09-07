@@ -37,7 +37,7 @@ This layout follows official guidance for clear module structure and documentati
 
 The following examples are available in this repository:
 
-- [Complete Example](https://github.com/Deeep095/terraform-aws-fileshare/tree/main/Examples/complete)
+- [Complete Example](https://github.com/Deeep095/terraform-aws-fileshare/tree/main/examples/complete)
 
 ### Complete Example
 
