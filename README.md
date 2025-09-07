@@ -23,19 +23,8 @@ References: standard module structure and examples; S3 Block Public Access; pres
 This layout follows official guidance for clear module structure and documentation.  
 
 ## Inputs (key)
-- region (string) – AWS region.  
-- project_name (string) – Name prefix.  
-- bucket_name (optional) – Override bucket.  
-- table_name (optional) – Override table.  
-- notification_email (optional) – SNS email subscription.  
-- lambda_presign_source (string) – Path to lambda_presign.py.  
-- lambda_postupload_source (string) – Path to lambda_postupload.py.  
-- lambda_runtime (string, default: python3.11).  
-- url_expiry_seconds (number, default: 3600).  
-- enable_cdn (bool, default: true).  
-- cdn_price_class (string, default: PriceClass_100).  
-- cors_allowed_origins/methods/headers (lists).  
-- tags (map(string)).  
+- region  (optional) - string – AWS region. 
+- notification_email – string - SNS email subscription.  
 
 ## Outputs (key)
 - api_invoke_url – Base invoke URL.  
@@ -45,3 +34,13 @@ This layout follows official guidance for clear module structure and documentati
 - cdn_domain – CloudFront domain (if enabled).  
 
 ## Usage (example)
+
+See the [examples/complete](./examples/complete) folder for a full working usage.
+
+```hcl
+module "fileshare" {
+  source  = "Deeep095/fileshare/aws"
+  version = "1.1.5"
+
+  # insert required variables here
+}
