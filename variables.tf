@@ -1,5 +1,5 @@
 variable "notify_email" {
-  type        = string
+  type = string
   description = "Email address to receive upload notifications"
 }
 
