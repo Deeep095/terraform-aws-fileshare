@@ -10,14 +10,14 @@ resource "aws_lambda_function" "presign_lambda" {
   function_name    = "PresignURLFunction"
   role             = aws_iam_role.presign_lambda_role.arn
   runtime          = "python3.10"
-  handler          = "lambda_presign.lambda_handler"   # file name and handler function
-  filename         = "lambda_presign.zip"           # path to packaged code
-  source_code_hash = filebase64sha256("lambda/lambda_presign.zip")
+  handler          = "lambda_presign.lambda_handler" # file name and handler function
+  filename         = "${path.module}/../lambda/lambda_presign.zip"
+  source_code_hash = filebase64sha256("${path.module}/../lambda/lambda_presign.zip")
   timeout          = 15
   environment {
     variables = {
-      BUCKET_NAME  = aws_s3_bucket.files.bucket,
-      TABLE_NAME   = aws_dynamodb_table.files.name
+      BUCKET_NAME = aws_s3_bucket.files.bucket,
+      TABLE_NAME  = aws_dynamodb_table.files.name
       # (We could also include CloudFront URL or other config if needed)
     }
   }
@@ -28,8 +28,9 @@ resource "aws_lambda_function" "postupload_lambda" {
   role             = aws_iam_role.postupload_lambda_role.arn
   runtime          = "python3.10"
   handler          = "lambda_postupload.lambda_handler"
-  filename         = "lambda_postupload.zip"
-  source_code_hash = filebase64sha256("lambda/lambda_postupload.zip")
+  filename         = "${path.module}/../lambda/lambda_postupload.zip"
+  source_code_hash = filebase64sha256("${path.module}/../lambda/lambda_postupload.zip")
+
   timeout          = 15
   environment {
     variables = {
