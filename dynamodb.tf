@@ -14,3 +14,4 @@ resource "aws_dynamodb_table" "files" {
     Name        = "DropboxFilesMetadata"
   }
 }
+

@@ -49,6 +49,7 @@ module "fileshare" {
   notify_email = "test@example.com"
 
   # Optionally override defaults
-  # aws_region = "us-east-1"
+  # aws_region = "ap-south-1"
+  # bucket_name = "bucket-s3-files-upload-54946"
 }
 

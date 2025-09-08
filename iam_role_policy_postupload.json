@@ -1,0 +1,18 @@
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Effect"   : "Allow",
+        "Action"   : [
+          "dynamodb:GetItem",
+          "dynamodb:UpdateItem"
+        ],
+        "Resource" : "${aws_dynamodb_table.files.arn}"
+      },
+      {
+        "Effect"   : "Allow",
+        "Action"   : "sns:Publish",
+        "Resource" : "${aws_sns_topic.upload_notifications.arn}"
+      }
+    ]
+}

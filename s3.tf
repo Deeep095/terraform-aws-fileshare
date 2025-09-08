@@ -1,6 +1,11 @@
+resource "random_id" "random" {
+  byte_length = 8
+}
+
 # S3 bucket to store uploaded files
+
 resource "aws_s3_bucket" "files" {
-  bucket        = "my-dropbox-bucket-33224"               # choose a unique name
+  bucket        =  "${var.bucket_prefix}-${random_id.random.hex}"   # make a unique name
   force_destroy = true                              # allow auto-destroy for demo (careful in prod!)
   # (Optional) Enable versioning for file history
   # Default encryption (AES-256) for all objects
@@ -17,7 +22,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "configur" {
   }
 }
 # Block all public access to this bucket for safety
-resource "aws_s3_bucket_public_access_block" "files" {
+resource "aws_s3_bucket_public_access_block" "block_access" {
   bucket                  = aws_s3_bucket.files.id
   block_public_acls       = true
   block_public_policy     = true
