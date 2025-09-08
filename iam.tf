@@ -29,16 +29,16 @@ resource "aws_iam_role_policy_attachment" "lambda_logs_attach" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
-# Inline policy for presign Lambda (S3 and DynamoDB access)
+#  policy for presign Lambda (S3 and DynamoDB access)
 resource "aws_iam_role_policy" "presign_policy" {
   name   = "PresignLambdaPolicy"
   role   = aws_iam_role.presign_lambda_role.id
-  policy = file("iam_role_policy_presign.json")
+  policy = file("${path.module}/iam_role_policy_presign.json")
 }
 
-# Inline policy for post-upload Lambda (DynamoDB update and SNS publish)
+#  policy for post-upload Lambda (DynamoDB update and SNS publish)
 resource "aws_iam_role_policy" "postupload_policy" {
   name   = "PostUploadLambdaPolicy"
   role   = aws_iam_role.postupload_lambda_role.id
-  policy = file("iam_role_policy_postupload.json")
+  policy = file("${path.module}/iam_role_policy_postupload.json")
 }
