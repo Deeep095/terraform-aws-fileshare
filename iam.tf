@@ -43,7 +43,7 @@ resource "aws_iam_role_policy" "presign_policy" {
           "dynamodb:GetItem",               # read metadata (for download)
           "dynamodb:UpdateItem"            # update metadata if needed
         ],
-        Resource = aws_dynamodb_table.files.arn
+        Resource = "${aws_dynamodb_table.files.arn}"
       },
       {
         Effect   = "Allow",
@@ -74,12 +74,12 @@ resource "aws_iam_role_policy" "postupload_policy" {
           "dynamodb:GetItem",
           "dynamodb:UpdateItem"
         ],
-        Resource = aws_dynamodb_table.files.arn
+        Resource = "${aws_dynamodb_table.files.arn}"
       },
       {
         Effect   = "Allow",
         Action   = "sns:Publish",
-        Resource = aws_sns_topic.upload_notifications.arn
+        Resource = "${aws_sns_topic.upload_notifications.arn}"
       }
     ]
   })
