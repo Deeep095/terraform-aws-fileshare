@@ -1,4 +1,3 @@
-````markdown
 # Fileshare (Terraform Module)
 
 A composable Terraform module that creates a **secure private file storage system** using AWS services.  
@@ -8,7 +7,7 @@ The S3 bucket remains **fully private** with Block Public Access enabled. Client
 
 ---
 
-## 🚀 How It Works
+## 🚀 Working
 
 - **Upload & Download**  
   API Gateway (HTTP) invokes a Lambda function that generates presigned S3 URLs for PUT/GET (and multipart uploads).  
@@ -23,7 +22,7 @@ The S3 bucket remains **fully private** with Block Public Access enabled. Client
 
 ---
 
-## 📂 Module Structure
+## 1. 📂 Module Structure
 
 This module follows Terraform best practices, splitting resources across files for clarity and reuse:
 
@@ -39,19 +38,19 @@ This module follows Terraform best practices, splitting resources across files f
 
 ---
 
-## ⚙️ Inputs (Key Variables)
+## 2. ⚙️ Inputs (Key Variables)
 
-| Name              | Type   | Default             | Description                                     |
-|-------------------|--------|---------------------|-------------------------------------------------|
-| `aws_region`      | string | `us-east-1`         | AWS region to deploy resources.                 |
-| `notify_email`    | string | n/a (required)      | Email for SNS notifications.                    |
-| `bucket_prefix`   | string | `bucket-s3-files`   | Prefix for the S3 bucket name.                  |
+| Variable        | Type   | Default           | Description                                |
+|-----------------|--------|-------------------|--------------------------------------------|
+| `aws_region`    | string | `us-east-1`       | AWS region to deploy resources.             |
+| `notify_email`  | string | **required**      | Email address for SNS notifications.        |
+| `bucket_prefix` | string | `bucket-s3-files` | Prefix for the S3 bucket name.              |
 
 ---
 
-## 📤 Outputs
+## 3. 📤 Outputs
 
-| Name             | Description                                   |
+| Output           | Description                                   |
 |------------------|-----------------------------------------------|
 | `api_invoke_url` | Base API Gateway invoke URL.                  |
 | `routes`         | Map of endpoint routes (`/upload`, etc.).     |
@@ -61,12 +60,7 @@ This module follows Terraform best practices, splitting resources across files f
 
 ---
 
-## 📌 Example Usage
-
-A complete working example is available here:  
-[**Complete Example**](https://github.com/Deeep095/terraform-aws-fileshare/tree/main/examples/complete)
-
-###  Example
+## 🧩 Example Usage
 
 ```hcl
 module "fileshare" {
@@ -79,8 +73,7 @@ module "fileshare" {
   # aws_region   = "ap-south-1"
   # bucket_prefix = "bucket-s3-files-upload"
 }
-````
-
+```
 ---
 
 ## 4. Deployment Process
